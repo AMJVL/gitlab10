@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GAMR1503 lab 1.3 - Hex viewer</title>
+    <script>
+
+        function formattedHex()
+        {
+            let result = document.getElementById("hexSrc").value;
+            result = result.toUpperCase();
+            result = result.replace( /[^A-F0-9]/g, "");
+			
+			if(result.length % 2) result = "0" + result;
+
+            document.getElementById("hexSrc").value = result;
+			return result;
+        }
+
+        function convertToInteger()
+        {
+            let result = 0;
+            let hex = formattedHex();
+
+            document.getElementById("textDst").innerText = "" + result;
+        }
+
+        function convertToBinary()
+        {
+            let result = "";
+            let hex = formattedHex();
+        
+            document.getElementById("textDst").innerText = result;
+        }
+
+
+
+        function convertToASCII()
+        {
+            let result = "";
+            let hex = formattedHex();
+           
+            document.getElementById("textDst").innerText = result;
+        }
+
+    </script>
+</head>
+<body>
+	<h1>GAMR1530 Lab 1.3 Simple Hex Convertor</h1>
+	<p>Type Hex here:</p>
+    <textarea id="hexSrc" name="hexSrc" cols="48" rows="20"></textarea>
+    </br>
+	<button onClick="convertToInteger()">Convert to integer</button>
+    <button onClick="convertToBinary()">Convert to binary</button>
+    <button onClick="convertToASCII()">Convert to ASCII</button>
+    <p>Result:</p>
+    <div id="textDst" name="textDst" style="border:1px solid black; height: 300px"> </div>
+</body>
+
+</html>
